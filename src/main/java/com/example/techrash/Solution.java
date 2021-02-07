@@ -118,9 +118,13 @@ public class Solution {
     }
 
 
-    public void generateCSVFileFromWeb() {
+    public void generateCSVFileFromWeb() throws RuntimeException {
         String url = "https://finance.yahoo.com/quote/%5EVIX/history?p=^VIX";
         DataFormat dataFormat = getDetailsFromUrl(url);
+
+        if (dataFormat.getHeader() == null || dataFormat.getOtherRowList() == null
+                || dataFormat.getHeader().length == 0 || dataFormat.getOtherRowList().isEmpty())
+            throw new RuntimeException("No Data Found!");
 
         //Excel Format
         createExcelFile(dataFormat);

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TechrashApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RuntimeException {
 		SpringApplication.run(TechrashApplication.class, args);
 		Solution solution = new Solution();
 		solution.generateCSVFileFromWeb();
