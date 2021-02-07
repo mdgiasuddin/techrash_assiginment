@@ -11,7 +11,7 @@ public class TechrashApplication {
 		Solution solution = new Solution();
 		solution.generateCSVFileFromWeb();
 
-		System.out.println("Completed");
+		System.out.println("Completed...");
 	}
 
 }

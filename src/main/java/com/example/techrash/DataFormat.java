@@ -6,6 +6,6 @@ import java.util.List;
 
 @Data
 public class DataFormat {
-    private List<String> header;
-    private List<List<String>> otherRowList;
+    private String[] header;
+    private List<String[]> otherRowList;
 }
