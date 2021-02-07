@@ -24,6 +24,10 @@ public class Solution {
             String content = Jsoup.connect(url).get().text();
             int starting = content.indexOf("Date Open High Low Close* Adj Close** Volume");
             int ending = content.indexOf(" *Close price adjusted for splits.**");
+
+            if (starting == -1 || ending == -1)
+                throw new RuntimeException("No Data Found!");
+
             content = content.substring(starting, ending);
 
             String headerPart = content.substring(0, 45);
