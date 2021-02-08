@@ -26,7 +26,7 @@ public class Solution {
             int ending = content.indexOf(" *Close price adjusted for splits.**");
 
             if (starting == -1 || ending == -1)
-                throw new RuntimeException("No Data Found!");
+                throw new NoDataFoundException("No Data Found!");
 
             content = content.substring(starting, ending);
 
@@ -122,13 +122,13 @@ public class Solution {
     }
 
 
-    public void generateCSVFileFromWeb() throws RuntimeException {
+    public void generateCSVFileFromWeb() throws NoDataFoundException {
         String url = "https://finance.yahoo.com/quote/%5EVIX/history?p=^VIX";
         DataFormat dataFormat = getDetailsFromUrl(url);
 
         if (dataFormat.getHeader() == null || dataFormat.getOtherRowList() == null
                 || dataFormat.getHeader().length == 0 || dataFormat.getOtherRowList().isEmpty())
-            throw new RuntimeException("No Data Found!");
+            throw new NoDataFoundException("No Data Found!");
 
         //Excel Format
         createExcelFile(dataFormat);
