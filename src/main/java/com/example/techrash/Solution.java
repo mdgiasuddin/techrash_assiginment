@@ -40,7 +40,7 @@ public class Solution {
 
             String[] splittedRowList = content.split("-");
             for (String splittedRow : splittedRowList) {
-                splitted = splittedRow.split(" ");
+                splitted = splittedRow.trim().split(" ");
 
                 String[] otherRow = new String[]{splitted[0] + " " + splitted[1] + " " + splitted[2]
                         , splitted[3], splitted[4], splitted[5], splitted[6], splitted[7], "-"};
